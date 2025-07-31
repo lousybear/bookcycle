@@ -24,8 +24,8 @@ const startServer = async () => {
     app.use(bodyParser.urlencoded({ extended: false }));
 
     // Routes
-    app.get("/app/test", (_req, res) => res.json({ message: "It Works!" }));
-    app.use("/app", indexRouter);
+    app.get("/api/ping", (_req, res) => res.send('pong 🏓'));
+    app.use("/api", indexRouter);
 
     // Start server
     app.listen(port, () => {
