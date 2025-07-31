@@ -3,8 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv_1 = require("dotenv");
-(0, dotenv_1.config)(); // Load environment variables
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
@@ -20,6 +18,7 @@ const startServer = async () => {
         app.use(express_1.default.json()); // Same as bodyParser.json()
         app.use(body_parser_1.default.urlencoded({ extended: false }));
         // Routes
+        app.get("/", (_req, res) => res.send('BookCycle API v1 🚲'));
         app.get("/api/ping", (_req, res) => res.send('pong 🏓'));
         app.use("/api", index_router_1.default);
         // Start server

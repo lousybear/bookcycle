@@ -1,6 +1,3 @@
-import { config } from "dotenv";
-config(); // Load environment variables
-
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -24,6 +21,7 @@ const startServer = async () => {
     app.use(bodyParser.urlencoded({ extended: false }));
 
     // Routes
+    app.get("/", (_req, res) => res.send('BookCycle API v1 🚲'))
     app.get("/api/ping", (_req, res) => res.send('pong 🏓'));
     app.use("/api", indexRouter);
 
